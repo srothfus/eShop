@@ -20,6 +20,11 @@ namespace eShop.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Breakdown> Breakdowns { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<PaymentType> PaymentTypes { get; set; }
+        public DbSet<PurchaseOrder> PurchaseOrders { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
@@ -29,5 +34,7 @@ namespace eShop.Models
         {
             return new ApplicationDbContext();
         }
+
+        //public System.Data.Entity.DbSet<eShop.Models.ApplicationUser> ApplicationUsers { get; set; }
     }
 }

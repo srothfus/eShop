@@ -1,0 +1,111 @@
+﻿@model eShop.ViewModels.BreakdownFormViewModel
+
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<table id="breakdowns" class="table table-bordered table-hover" ?>
+    <tbody>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Breakdown.Equipment)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Breakdown.Equipment, new { @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Breakdown.TimeOfBreakdown)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Breakdown.TimeOfBreakdown, new { @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Breakdown.Operator)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Breakdown.Operator, new { @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Breakdown.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Breakdown.Location, new { @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Breakdown.ProblemDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Breakdown.ProblemDescription, new { @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Breakdown.ActionDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Breakdown.ActionDescription, new { @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Breakdown.WorkDoneBy)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Breakdown.WorkDoneBy, new { @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Breakdown.PaymentType)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Breakdown.PaymentType.Name, new { @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Breakdown.Payment)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Breakdown.Payment, new { @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Breakdown.IsFixed)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Breakdown.IsFixed, new { @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Breakdown.IsPaid)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Breakdown.IsPaid, new { @class = "form-control" })
+            </td>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Breakdown.IsResolved)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Breakdown.IsResolved, new { @class = "form-control" })
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+@Html.ActionLink("Back to list", "Index", "Breakdowns", null, new { @class = "btn btn-primary" })

@@ -1,0 +1,77 @@
+﻿@model IEnumerable<eShop.Models.Breakdown>
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Breakdowns</h2>
+
+<p>
+    @Html.ActionLink("Add New Breakdown", "New", "Breakdowns", null, new { @class = "btn btn-primary" })
+</p>
+
+<table id="breakdowns" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Equipment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimeOfBreakdown)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Operator)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProblemDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsFixed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsPaid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsResolved)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(item.Equipment, "Details", "Breakdowns", new { id = item.Id }, null)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TimeOfBreakdown, new { @class = "form-control" })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Operator, new { @class = "form-control" })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location, new { @class = "form-control" })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProblemDescription, new { @class = "form-control" })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsFixed, new { @class = "form-control" })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsPaid, new { @class = "form-control" })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsResolved, new { @class = "form-control" })
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", "Breakdowns", new { id = item.Id }, null)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
