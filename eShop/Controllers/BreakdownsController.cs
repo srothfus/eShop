@@ -117,6 +117,7 @@ namespace eShop.Controllers
                 breakdownInDb.IsFixed = breakdown.IsFixed;
                 breakdownInDb.IsPaid = breakdown.IsPaid;
                 breakdownInDb.IsResolved = breakdown.IsResolved;
+                breakdownInDb = breakdown;
             }
 
             _context.SaveChanges();

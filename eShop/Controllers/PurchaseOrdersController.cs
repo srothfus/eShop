@@ -62,7 +62,6 @@ namespace eShop.Controllers
             
         //    return View("PurchaseOrderForm", viewModel);
         //}
-
         //public ActionResult Details(int id)
         //{
         //    var purchaseOrder = _context.PurchaseOrders.Include(p => p.Customer).SingleOrDefault(p => p.Id == id);
