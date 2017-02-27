@@ -39,8 +39,9 @@ namespace eShop.Models
         [Display(Name = "Work Done By")]
         public string WorkDoneBy { get; set; }
 
-        public byte? PaymentTypeId { get; set; }
         [Display(Name = "Payment Type")]
+        public byte? PaymentTypeId { get; set; }
+        
         public PaymentType PaymentType { get; set; }
 
         [Display(Name = "Payment")]

@@ -2920,7 +2920,9 @@ select[multiple].input-lg {
   .form-inline .form-group {
     display: inline-block;
     margin-bottom: 0;
-    vertical-align: middle;
+    vertical-align: central;
+    padding-left: 3px;
+    padding-right: 3px;
   }
   .form-inline .form-control {
     display: inline-block;
