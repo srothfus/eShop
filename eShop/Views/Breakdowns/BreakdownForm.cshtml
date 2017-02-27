@@ -37,7 +37,7 @@
     </div>
     <div class="form-group">
         @Html.LabelFor(b => b.Breakdown.ActionDescription)
-        @Html.TextBoxFor(b => b.Breakdown.ActionDescription, new { @class = "form-control" })
+        @Html.TextAreaFor(b => b.Breakdown.ActionDescription, new { @class = "form-control" })
         @Html.ValidationMessageFor(b => b.Breakdown.ActionDescription)
     </div>
     <div class="form-group">
@@ -53,6 +53,11 @@
         @Html.TextBoxFor(b => b.Breakdown.Payment, new { @class = "form-control" })
     </div>
     <div class="form-group">
+        @Html.LabelFor(b => b.Breakdown.Comments)
+        @Html.TextAreaFor(b => b.Breakdown.Comments, new { @class = "form-control" })
+        @Html.ValidationMessageFor(b => b.Breakdown.Comments)
+    </div>
+    <div class="form-group">
         @Html.LabelFor(b => b.Breakdown.IsFixed)
         @Html.CheckBoxFor(b => b.Breakdown.IsFixed, new { @class = "form-control" })
     </div>
@@ -65,9 +70,11 @@
         @Html.CheckBoxFor(b => b.Breakdown.IsResolved, new { @class = "form-control" })
     </div>
 
+
     @Html.HiddenFor(b => b.Breakdown.Id)
     @Html.AntiForgeryToken()
     <button type="submit" class="btn btn-primary">Save</button>
+    @Html.ActionLink("Cancel", "Index", "Breakdowns", null, new { @class = "btn btn-primary" })
 }
 @section scripts
 {

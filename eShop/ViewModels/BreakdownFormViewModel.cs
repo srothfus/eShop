@@ -12,6 +12,15 @@ namespace eShop.ViewModels
         public IEnumerable<PaymentType> PaymentTypes { get; set; }
         public Breakdown Breakdown { get; set; }
 
+
+        public string EquipmentMatchString { get; set; }
+        public DateTime BeginDate { get; set; }
+        public DateTime EndDate { get; set; }
+
+        public bool ShowInactive { get; set; }
+
+
+
         public string Title
         {
             get

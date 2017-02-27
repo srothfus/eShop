@@ -105,6 +105,14 @@
                 @Html.DisplayFor(model => model.Breakdown.IsResolved, new { @class = "form-control" })
             </td>
         </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Breakdown.Comments)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Breakdown.Comments, new { @class = "form-control" })
+            </td>
+        </tr>
     </tbody>
 </table>
 

@@ -26,7 +26,7 @@ namespace eShop
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap-slate.css",
+                      "~/Content/bootstrap-darkly.css",
                       "~/Content/site.css"));
         }
     }

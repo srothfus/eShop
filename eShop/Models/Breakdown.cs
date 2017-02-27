@@ -52,6 +52,9 @@ namespace eShop.Models
         public bool IsPaid { get; set; }
         [Display(Name = "Done?")]
         public bool IsResolved { get; set; }
+
+        [StringLength(255)]
+        public string Comments { get; set; }
                 
         public Breakdown()
         {

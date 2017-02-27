@@ -255,6 +255,10 @@
     <Compile Include="Migrations\201702231957185_SeedUsersAndRoles.Designer.cs">
       <DependentUpon>201702231957185_SeedUsersAndRoles.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702270519059_AddCommentsToBreakdowns.cs" />
+    <Compile Include="Migrations\201702270519059_AddCommentsToBreakdowns.Designer.cs">
+      <DependentUpon>201702270519059_AddCommentsToBreakdowns.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Breakdown.cs" />
@@ -270,6 +274,7 @@
     <Compile Include="ViewModels\PurchaseOrderFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-darkly.css" />
     <Content Include="Content\bootstrap-slate.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -369,6 +374,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702231957185_SeedUsersAndRoles.resx">
       <DependentUpon>201702231957185_SeedUsersAndRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702270519059_AddCommentsToBreakdowns.resx">
+      <DependentUpon>201702270519059_AddCommentsToBreakdowns.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

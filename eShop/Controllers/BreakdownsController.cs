@@ -27,11 +27,37 @@ namespace eShop.Controllers
         // GET: Breakdowns
         public ActionResult Index()
         {
-            var model = _context.Breakdowns.ToList();
+            var model = _context.Breakdowns.Where(b => b.IsResolved == false).ToList();
 
             if (User.IsInRole(RoleName.CanManageBreakdowns))
                 return View("List", model);
             return View("ReadOnlyList", model);
+        }
+
+        [Authorize(Roles = RoleName.CanManageBreakdowns)]
+        public ActionResult Search(string searchString, DateTime? startDate, DateTime? endDate, bool showInactive = false)
+        {
+            var model = _context.Breakdowns.ToList();
+
+            if (!showInactive)
+                model = model.Where(b => b.IsResolved == showInactive).ToList();
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                model = model.Where(b => b.Equipment.Contains(searchString)).ToList();
+            }
+
+            if (startDate != null)
+            {
+                model = model.Where(b => b.TimeOfBreakdown >= startDate).ToList();
+
+                if (endDate != null)
+                {
+                    model = model.Where(b => b.TimeOfBreakdown <= endDate).ToList();
+                }
+            }
+
+            return View("List", model);
         }
 
         [Authorize(Roles = RoleName.CanManageBreakdowns)]
@@ -117,7 +143,7 @@ namespace eShop.Controllers
                 breakdownInDb.IsFixed = breakdown.IsFixed;
                 breakdownInDb.IsPaid = breakdown.IsPaid;
                 breakdownInDb.IsResolved = breakdown.IsResolved;
-                breakdownInDb = breakdown;
+                breakdownInDb.Comments = breakdown.Comments;
             }
 
             _context.SaveChanges();
