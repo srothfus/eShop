@@ -25,22 +25,15 @@ namespace eShop.Controllers
         }
 
         // GET: Breakdowns
-        public ActionResult Index()
-        {
-            var model = _context.Breakdowns.Where(b => b.IsResolved == false).ToList();
-
-            if (User.IsInRole(RoleName.CanManageBreakdowns))
-                return View("List", model);
-            return View("ReadOnlyList", model);
-        }
-
-        [Authorize(Roles = RoleName.CanManageBreakdowns)]
-        public ActionResult Search(string searchString, DateTime? startDate, DateTime? endDate, bool showInactive = false)
+        public ActionResult Index(string sortOrder, string searchString, DateTime? startDate, DateTime? endDate, bool showInactive = false)
         {
             var model = _context.Breakdowns.ToList();
 
+            //ViewBag.TimeSortParameter = String.IsNullOrEmpty(sortOrder) ? "Time" : "";
+            //ViewBag.EquipmentSortParameter = sortOrder == "Equipment" ? "Equipment_descending" : "Equipment";
+
             if (!showInactive)
-                model = model.Where(b => b.IsResolved == showInactive).ToList();
+                model = model.Where(b => b.IsResolved == false).ToList();
 
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -57,7 +50,26 @@ namespace eShop.Controllers
                 }
             }
 
-            return View("List", model);
+            //switch (sortOrder)
+            //{
+            //    case "Equipment_descending":
+            //        model = model.OrderByDescending(b => b.Equipment).ToList();
+            //        break;
+            //    case "Equipment":
+            //        model = model.OrderBy(b => b.Equipment).ToList();
+            //        break;
+            //    case "Time_descending":
+            //        model = model.OrderByDescending(b => b.TimeOfBreakdown).ToList();
+            //        break;
+            //    default:
+            //        model = model.OrderBy(b => b.TimeOfBreakdown).ToList();
+            //        break;
+            //}
+
+
+            if (User.IsInRole(RoleName.CanManageBreakdowns))
+                return View("List", model);
+            return View("ReadOnlyList", model);
         }
 
         [Authorize(Roles = RoleName.CanManageBreakdowns)]
