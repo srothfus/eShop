@@ -1,0 +1,92 @@
+﻿@model IEnumerable<eShop.Models.Breakdown>
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2 class="text-center">Breakdowns</h2>
+
+<div class="form-inline">
+    @using (Html.BeginForm("Index", "Breakdowns"))
+    {
+        <div class="form-group">
+            @Html.TextBox("searchString", "", new { @placeholder = "Search Equipment ID" })
+        </div>
+        <div class="form-group">
+            Start Date
+            @Html.TextBox("startDate", "", new { @type = "date" })
+        </div>
+        <div class="form-group">
+            End Date
+            @Html.TextBox("endDate", "", new { @type = "date" })
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    }
+</div>
+
+<table id="breakdowns" class="table table-bordered table-hover table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.ActionLink("Equipment", "Index", new { sortOrder = ViewBag.EquipmentSortParameter }, new { @class = "text-capitalize" })
+            </th>
+            <th>
+                @Html.ActionLink("Time", "Index", new { sortOrder = ViewBag.TimeSortParameter })
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Operator)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProblemDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsFixed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsPaid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsResolved)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comments)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(item.Equipment, "Details", "Breakdowns", new { id = item.Id }, null)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TimeOfBreakdown, new { @class = "form-control" })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Operator, new { @class = "form-control" })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location, new { @class = "form-control" })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProblemDescription, new { @class = "form-control" })
+                </td>
+                <td>
+                    @(item.IsFixed ? "Yes" : "")
+                </td>
+                <td>
+                    @(item.IsPaid ? "Yes" : "")
+                </td>
+                <td>
+                    @(item.IsResolved ? "Yes" : "")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comments, new { @class = "form-control" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
