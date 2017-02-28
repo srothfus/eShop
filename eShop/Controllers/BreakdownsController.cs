@@ -122,7 +122,7 @@ namespace eShop.Controllers
 
             if (breakdown.Id == 0)
             {
-                breakdown.TimeOfBreakdown = DateTime.Now;
+                //breakdown.TimeOfBreakdown = DateTime.Now;
 
                 _context.Breakdowns.Add(breakdown);
             }
