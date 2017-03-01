@@ -11,7 +11,8 @@ namespace eShop {
                 .Include("~/Content/Site.Mobile.css"));
             
             bundles.Add(new StyleBundle("~/Content/jquerymobile/css")
-                .Include("~/Content/jquery.mobile-{version}.css"));
+                .Include("~/Content/jquery.mobile-{version}.css",
+                         "~/Content/bootstrap-darkly.css"));
         }
     }
 }
