@@ -1,0 +1,21 @@
+﻿@model IEnumerable<eShop.Models.Breakdown>
+
+@{
+    ViewBag.Title = "List2";
+    Layout = "~/Views/Shared/_Layout.Mobile.cshtml";
+}
+
+<h2>Breakdowns</h2>
+
+<ul data-role="listview" data-filter="true">
+    @foreach (var item in Model)
+    {
+        <li>
+            <a href="@Url.Action("Details", new { item.Id })">
+            <h2>@item.Equipment</h2>
+            <p>@item.ProblemDescription</p>
+            <p>@item.TimeOfBreakdown</p>
+            </a>
+        </li>
+    }
+</ul>

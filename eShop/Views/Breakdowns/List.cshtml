@@ -67,7 +67,7 @@
             {
                 <tr>
                     <td>
-                        @item.Equipment
+                        <a href="@Url.Action("Details", new { item.Id })">@item.Equipment</a>
                     </td>
                     <td>
                         @item.TimeOfBreakdown
