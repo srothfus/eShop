@@ -1417,6 +1417,9 @@ a.bg-danger:focus {
   border-bottom: 1px solid transparent;
 }
 ul,
+ul li {
+    padding: 2px;
+}
 ol {
   margin-top: 0;
   margin-bottom: 10.5px;

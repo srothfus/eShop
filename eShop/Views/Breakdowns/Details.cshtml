@@ -86,8 +86,8 @@
             <td>
                 @Html.DisplayNameFor(model => model.Breakdown.IsFixed)
             </td>
-            <td class="form-control">
-                @Html.DisplayFor(model => model.Breakdown.IsFixed, new { @class="form-control" })
+            <td>
+                @(Model.Breakdown.IsFixed ? "Yes" : "No")
             </td>
         </tr>
         <tr>
@@ -95,14 +95,14 @@
                 @Html.DisplayNameFor(model => model.Breakdown.IsPaid)
             </td>
             <td>
-                @Html.DisplayFor(model => model.Breakdown.IsPaid, new { @class="form-control" })
+                @(Model.Breakdown.IsPaid ? "Yes" : "No")
             </td>
         <tr>
             <td>
                 @Html.DisplayNameFor(model => model.Breakdown.IsResolved)
             </td>
             <td>
-                @Html.DisplayFor(model => model.Breakdown.IsResolved, new { @class="form-control" })
+                @(Model.Breakdown.IsResolved ? "Yes" : "No")
             </td>
         </tr>
         <tr>

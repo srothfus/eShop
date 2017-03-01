@@ -16,9 +16,10 @@
     <li>@Html.DisplayNameFor(model => model.Breakdown.WorkDoneBy): @Model.Breakdown.WorkDoneBy</li>
     <li>@Html.DisplayNameFor(model => model.Breakdown.PaymentType): @Model.Breakdown.PaymentType</li>
     <li>@Html.DisplayNameFor(model => model.Breakdown.Payment): @Model.Breakdown.Payment</li>
-    <li>@Html.DisplayNameFor(model => model.Breakdown.IsFixed) @Model.Breakdown.IsFixed</li>
-    <li>@Html.DisplayNameFor(model => model.Breakdown.IsPaid) @Model.Breakdown.IsPaid</li>
-    <li>@Html.DisplayNameFor(model => model.Breakdown.IsResolved) @Model.Breakdown.IsResolved</li>
+    <li>@Html.DisplayNameFor(model => model.Breakdown.IsFixed) @(Model.Breakdown.IsFixed ? "Yes" : "No")</li>
+    <li>@Html.DisplayNameFor(model => model.Breakdown.IsPaid) @(Model.Breakdown.IsPaid ? "Yes" : "No")</li>
+    <li>@Html.DisplayNameFor(model => model.Breakdown.IsResolved) @(Model.Breakdown.IsResolved ? "Yes" : "No")</li>
+    <li>@Html.DisplayNameFor(model => model.Breakdown.Comments): @Model.Breakdown.Comments</li>
 </ul>
 
 <a href="@Url.Action("Index")">Back to List</a>

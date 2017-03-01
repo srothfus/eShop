@@ -5,11 +5,11 @@
     Layout = "~/Views/Shared/_Layout.Mobile.cshtml";
 }
 
-<ul data-role="listview" data-filter="true">
+<ul data-role="listview" data-filter="true" class="list-unstyled">
     @foreach (var item in Model)
     {
         <li>
-            <a href="@Url.Action("Details", new { item.Id })">
+            <a href="@Url.Action("Details", new { item.Id })" class="btn btn-block btn-primary">
             <h2>@item.Equipment</h2>
             <p>@item.ProblemDescription</p>
             <p>@item.TimeOfBreakdown</p>
