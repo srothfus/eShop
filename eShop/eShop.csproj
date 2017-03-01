@@ -371,6 +371,7 @@
     <Content Include="Views\Breakdowns\List.Mobile.cshtml" />
     <Content Include="Views\Home\Index.Mobile.cshtml" />
     <Content Include="Views\Breakdowns\Details.Mobile.cshtml" />
+    <Content Include="Views\Account\Login.Mobile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
