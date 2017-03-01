@@ -1,5 +1,6 @@
 ﻿using eShop.Models;
 using eShop.ViewModels;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -25,12 +26,9 @@ namespace eShop.Controllers
         }
 
         // GET: Breakdowns
-        public ActionResult Index(string sortOrder, string searchString, DateTime? startDate, DateTime? endDate, bool showInactive = false)
+        public ActionResult Index(int? page, string sortOrder, string searchString, DateTime? startDate, DateTime? endDate, bool showInactive = false)
         {
             var model = _context.Breakdowns.ToList();
-
-            //ViewBag.TimeSortParameter = String.IsNullOrEmpty(sortOrder) ? "Time" : "";
-            //ViewBag.EquipmentSortParameter = sortOrder == "Equipment" ? "Equipment_descending" : "Equipment";
 
             if (!showInactive)
                 model = model.Where(b => b.IsResolved == false).ToList();
@@ -50,22 +48,12 @@ namespace eShop.Controllers
                 }
             }
 
-            //switch (sortOrder)
-            //{
-            //    case "Equipment_descending":
-            //        model = model.OrderByDescending(b => b.Equipment).ToList();
-            //        break;
-            //    case "Equipment":
-            //        model = model.OrderBy(b => b.Equipment).ToList();
-            //        break;
-            //    case "Time_descending":
-            //        model = model.OrderByDescending(b => b.TimeOfBreakdown).ToList();
-            //        break;
-            //    default:
-            //        model = model.OrderBy(b => b.TimeOfBreakdown).ToList();
-            //        break;
-            //}
+            var pageNumber = page ?? 1;
+            var itemsPerPage = 15;
 
+            var onePageofBreakdowns = model.ToPagedList(pageNumber, itemsPerPage);
+
+            ViewBag.OnePageOfBreakdowns = onePageofBreakdowns;
 
             if (User.IsInRole(RoleName.CanManageBreakdowns))
                 return View("List", model);

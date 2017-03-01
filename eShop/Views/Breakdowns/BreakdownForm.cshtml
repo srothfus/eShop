@@ -10,55 +10,89 @@
 @using (Html.BeginForm("Save", "Breakdowns"))
 {
     @Html.ValidationSummary(true, "Please fix the following errors.")
-    <div>
-        <div class="form-group">
-            @Html.LabelFor(b => b.Breakdown.Equipment)
-            @Html.TextBoxFor(b => b.Breakdown.Equipment, new { @class="form-control", @onkeydown="upperCaseF(this)" })
-            @Html.ValidationMessageFor(b => b.Breakdown.Equipment)
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(b => b.Breakdown.Operator)
-            @Html.TextBoxFor(b => b.Breakdown.Operator, new { @class="form-control" })
-            @Html.ValidationMessageFor(b => b.Breakdown.Operator)
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(b => b.Breakdown.TimeOfBreakdown)
-        @Html.TextBoxFor(b => b.Breakdown.TimeOfBreakdown, "{0:MM/dd/yyyy hh:mm}", new { @class="form-control" })
-        @Html.ValidationMessageFor(b => b.Breakdown.TimeOfBreakdown)
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(b => b.Breakdown.Location)
-        @Html.TextBoxFor(b => b.Breakdown.Location, new { @class="form-control" })
-        @Html.ValidationMessageFor(b => b.Breakdown.Location)
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(b => b.Breakdown.ProblemDescription)
-        @Html.TextBoxFor(b => b.Breakdown.ProblemDescription, new { @class="form-control" })
-        @Html.ValidationMessageFor(b => b.Breakdown.ProblemDescription)
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(b => b.Breakdown.ActionDescription)
-        @Html.TextAreaFor(b => b.Breakdown.ActionDescription, new { @class="form-control" })
-        @Html.ValidationMessageFor(b => b.Breakdown.ActionDescription)
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(b => b.Breakdown.WorkDoneBy)
-        @Html.TextBoxFor(b => b.Breakdown.WorkDoneBy, new { @class="form-control" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(b => b.Breakdown.PaymentTypeId)
-        @Html.DropDownListFor(b => b.Breakdown.PaymentTypeId, new SelectList(Model.PaymentTypes, "Id", "Name"), "", new { @class="form-control" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(b => b.Breakdown.Payment)
-        @Html.TextBoxFor(b => b.Breakdown.Payment, new { @class="form-control" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(b => b.Breakdown.Comments)
-        @Html.TextAreaFor(b => b.Breakdown.Comments, new { @class="form-control" })
-        @Html.ValidationMessageFor(b => b.Breakdown.Comments)
-    </div>
+    <table class="table-condensed">
+        <tr>
+            <td>
+                <div class="form-group">
+                    @Html.LabelFor(b => b.Breakdown.Equipment)
+                    @Html.TextBoxFor(b => b.Breakdown.Equipment, new { @class = "form-control", @onkeydown = "upperCaseF(this)" })
+                    @Html.ValidationMessageFor(b => b.Breakdown.Equipment)
+                </div>
+            </td>
+            <td>
+                <div class="form-group">
+                    @Html.LabelFor(b => b.Breakdown.Operator)
+                    @Html.TextBoxFor(b => b.Breakdown.Operator, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(b => b.Breakdown.Operator)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="form-group">
+                    @Html.LabelFor(b => b.Breakdown.Location)
+                    @Html.TextBoxFor(b => b.Breakdown.Location, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(b => b.Breakdown.Location)
+                </div>
+            </td>
+            <td>
+                <div class="form-group">
+                    @Html.LabelFor(b => b.Breakdown.TimeOfBreakdown)
+                    @Html.TextBoxFor(b => b.Breakdown.TimeOfBreakdown, "{0:MM/dd/yyyy hh:mm}", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(b => b.Breakdown.TimeOfBreakdown)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div class="form-group">
+                    @Html.LabelFor(b => b.Breakdown.ProblemDescription)
+                    @Html.TextBoxFor(b => b.Breakdown.ProblemDescription, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(b => b.Breakdown.ProblemDescription)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div class="form-group">
+                    @Html.LabelFor(b => b.Breakdown.ActionDescription)
+                    @Html.TextAreaFor(b => b.Breakdown.ActionDescription, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(b => b.Breakdown.ActionDescription)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div class="form-group">
+                    @Html.LabelFor(b => b.Breakdown.WorkDoneBy)
+                    @Html.TextBoxFor(b => b.Breakdown.WorkDoneBy, new { @class = "form-control" })
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="form-group">
+                    @Html.LabelFor(b => b.Breakdown.PaymentTypeId)
+                    @Html.DropDownListFor(b => b.Breakdown.PaymentTypeId, new SelectList(Model.PaymentTypes, "Id", "Name"), "", new { @class = "form-control" })
+                </div>
+            </td>
+            <td>
+                <div class="form-group">
+                    @Html.LabelFor(b => b.Breakdown.Payment)
+                    @Html.TextBoxFor(b => b.Breakdown.Payment, new { @class = "form-control" })
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div class="form-group">
+                    @Html.LabelFor(b => b.Breakdown.Comments)
+                    @Html.TextAreaFor(b => b.Breakdown.Comments, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(b => b.Breakdown.Comments)
+                </div>
+            </td>
+        </tr>
+    </table>
     <div class="form-inline">
         <div class="form-group">
             @Html.LabelFor(b => b.Breakdown.IsFixed)
