@@ -1,0 +1,24 @@
+﻿@model eShop.ViewModels.BreakdownFormViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.Mobile.cshtml";
+}
+
+<h2>@Model.Breakdown.Equipment</h2>
+
+<ul>
+    <li>@Html.DisplayNameFor(model => model.Breakdown.TimeOfBreakdown): @Model.Breakdown.TimeOfBreakdown</li>
+    <li>@Html.DisplayNameFor(model => model.Breakdown.Operator): @Model.Breakdown.Operator</li>
+    <li>@Html.DisplayNameFor(model => model.Breakdown.Location): @Model.Breakdown.Location</li>
+    <li>@Html.DisplayNameFor(model => model.Breakdown.ProblemDescription): @Model.Breakdown.ProblemDescription</li>
+    <li>@Html.DisplayNameFor(model => model.Breakdown.ActionDescription): @Model.Breakdown.ActionDescription</li>
+    <li>@Html.DisplayNameFor(model => model.Breakdown.WorkDoneBy): @Model.Breakdown.WorkDoneBy</li>
+    <li>@Html.DisplayNameFor(model => model.Breakdown.PaymentType): @Model.Breakdown.PaymentType</li>
+    <li>@Html.DisplayNameFor(model => model.Breakdown.Payment): @Model.Breakdown.Payment</li>
+    <li>@Html.DisplayNameFor(model => model.Breakdown.IsFixed): @Model.Breakdown.IsFixed</li>
+    <li>@Html.DisplayNameFor(model => model.Breakdown.IsPaid): @Model.Breakdown.IsPaid</li>
+    <li>@Html.DisplayNameFor(model => model.Breakdown.IsResolved): @Model.Breakdown.IsResolved</li>
+</ul>
+
+<a href="@Url.Action("Index")">Back to List</a>
